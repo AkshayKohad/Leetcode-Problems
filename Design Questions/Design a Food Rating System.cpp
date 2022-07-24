@@ -76,3 +76,59 @@ public:
  * obj->changeRating(food,newRating);
  * string param_2 = obj->highestRated(cuisine);
  */
+
+
+
+
+
+// Approach 2 is simple and easy to understand
+
+class FoodRatings {
+public:
+    //food-rating
+    map<string,int>f1;
+    
+    //food-cuisine
+    map<string,string>f2;
+    
+    //cuisine-> set-> (rating,foods)
+    map<string,set<pair<int,string>>>f3;
+    FoodRatings(vector<string>& foods, vector<string>& cuisines, vector<int>& ratings) {
+     
+        int n = foods.size();
+        
+        for(int i=0;i<n;i++)
+        {
+           f1[foods[i]] = ratings[i];
+            
+           f2[foods[i]]  = cuisines[i];
+            
+            f3[cuisines[i]].insert({-ratings[i],foods[i]});
+        }
+        
+        
+        
+    }
+    
+    void changeRating(string food, int newRating) {
+        
+        f3[f2[food]].erase({-f1[food],food});
+        
+        f3[f2[food]].insert({-newRating,food});
+        
+        f1[food] = newRating;
+    }
+    
+    string highestRated(string cuisine) {
+        
+        return f3[cuisine].begin()->second;
+        
+    }
+};
+
+/**
+ * Your FoodRatings object will be instantiated and called as such:
+ * FoodRatings* obj = new FoodRatings(foods, cuisines, ratings);
+ * obj->changeRating(food,newRating);
+ * string param_2 = obj->highestRated(cuisine);
+ */
