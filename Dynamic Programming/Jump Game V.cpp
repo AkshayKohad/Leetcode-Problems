@@ -2,7 +2,7 @@ class Solution {
 public:
     
     
-    // used stack to leftmost max and rightmost max and using that I found out contiguous size of values less than particular index at left and right side
+    // used Monotonic stack to leftmost max and rightmost max and using that I found out contiguous size of values less than particular index at left and right side
     //and then applied dp concept to find out answer 
     
     int solve(int i,vector<int>&arr,int &d,int &n,vector<int>&left_min_size,vector<int>&right_min_size,vector<int>&memo)
