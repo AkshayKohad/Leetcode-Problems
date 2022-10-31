@@ -43,7 +43,7 @@ public:
                     int x = d.first + i;
                     int y = d.second + j;
                     
-                    if(x>=n || y>=m || x<0 || y<0 || visited[x][y][moves]==1)
+                    if(x>=n || y>=m || x<0 || y<0 )
                     {
                         continue;
                     }
@@ -68,6 +68,10 @@ public:
                     }
                     
                     else{
+                        if(visited[x][y][moves]==1)
+                        {
+                            continue;
+                        }
                         visited[x][y][moves] = 1;
                         q.push({moves,{x,y}});
                     }
