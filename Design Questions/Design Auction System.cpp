@@ -18,7 +18,6 @@ public:
             cur_bidAmount = item_user_record[key];
         }
         item_user_record[key] = bidAmount;
-
         if(cur_bidAmount != -1){
             item_record[itemId].erase({cur_bidAmount,userId});
         }
@@ -28,33 +27,23 @@ public:
     
     void updateBid(int userId, int itemId, int newAmount) {
         string key = to_string(itemId) + "#" + to_string(userId);
-        
         int cur_bidAmount = item_user_record[key];
-        
         item_user_record[key] = newAmount;
-
         item_record[itemId].erase({cur_bidAmount,userId});
-        
         item_record[itemId].insert({newAmount,userId});
     }
     
     void removeBid(int userId, int itemId) {
         string key = to_string(itemId) + "#" + to_string(userId);
-        
         int cur_bidAmount = item_user_record[key];
-        
         item_user_record.erase(key);
-
         item_record[itemId].erase({cur_bidAmount,userId});
         
     }
     
     int getHighestBidder(int itemId) {
-        
         if(item_record[itemId].size()==0)return -1;
-        
         auto result = item_record[itemId].rbegin();
-
         return result->second;
     }
 };
