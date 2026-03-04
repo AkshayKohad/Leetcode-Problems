@@ -1,7 +1,5 @@
 class Solution {
 public:
-    
-    
     bool check(int i,int j,vector<vector<char>>&board)
     {
         if(board[i][j]=='.')
