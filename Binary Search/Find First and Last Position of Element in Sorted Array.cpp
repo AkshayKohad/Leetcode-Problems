@@ -6,37 +6,28 @@ public:
         int n = nums.size();
         int i = 0;
         int j = n-1;
-        
         while(i<=j)
         {
             int mid = (i+j)/2;
-            
             if(nums[mid]>target)
                 j = mid-1;
             else if(nums[mid]<target)
                 i = mid+1;
-            
-            else
-            {
-                while(mid-1>=0 && nums[mid]==nums[mid-1])
-                {
+            else{
+                while(mid-1>=0 && nums[mid]==nums[mid-1]){
                     mid--;
                 }
-                if(mid>=0)
-                {
+                if(mid>=0){
                     x=mid;
                 }
                 
                 mid = (i+j)/2;
-                while(mid+1<n && nums[mid]==nums[mid+1])
-                {
+                while(mid+1<n && nums[mid]==nums[mid+1]){
                     mid++;
                 }
-                if(mid<n)
-                {
+                if(mid<n){
                     y=mid;
                 }
-                
                 break;
             }
          }
