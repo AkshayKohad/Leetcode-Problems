@@ -1,7 +1,5 @@
 class Solution {
 public:
-    
-    
     bool isSafe(int node,vector<int>adj[],vector<int>&flower,int f){
         for(auto u : adj[node]){
             if(flower[u] == f)
