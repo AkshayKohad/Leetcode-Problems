@@ -38,7 +38,7 @@ public:
             for(int j=0;j<k-bits;j++){
                 ans = ans | (1LL << j);
             }
-
+            //return ans
             return ans;
        }
        return mini; 
