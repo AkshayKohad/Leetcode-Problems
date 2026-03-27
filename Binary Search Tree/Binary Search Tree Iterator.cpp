@@ -11,7 +11,6 @@ public:
         TreeNode*root = st.top();
         st.pop();
         pushL(root->right);
-        
         return x;
     }
     
@@ -23,8 +22,7 @@ public:
     
     void pushL(TreeNode*root)
     {
-        while(root!=NULL)
-        {
+        while(root!=NULL){
             st.push(root);
             root = root->left;
         }
